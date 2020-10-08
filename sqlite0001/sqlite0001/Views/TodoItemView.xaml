@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sqlite0001.Views.TodoItemView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Nom"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Entry Placeholder="" Text="{Binding Nom}" />
+            <Label Text="Prenom"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Entry Placeholder="" Text="{Binding Prenom}"/>
+            <Button Text="" Command="{Binding ActionAjout}" />
+            <BoxView WidthRequest="1" BackgroundColor="#13153F" HeightRequest="5" Margin="0,0,0,15" />
+
+            <CollectionView ItemsSource="{Binding MaListe}"  SelectionMode="Single"  VerticalOptions="Fill">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                        Span="1" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid  RowSpacing="0" ColumnSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                
+
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0"
+                       Text="{Binding Nom}"
+                       FontAttributes="Bold"
+                       LineBreakMode="TailTruncation" />
+                            <Label Grid.Row="0" Grid.Column="1"
+                       Text="{Binding Prenom}"
+                       FontAttributes="Bold"
+                                       HorizontalOptions="End"
+                       LineBreakMode="TailTruncation" />
+                            
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

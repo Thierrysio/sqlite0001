@@ -1,0 +1,24 @@
+﻿using System;
+using System.IO;
+
+namespace sqlite0001
+{
+    public static class  Constantes
+    {
+        public const string DatabaseFilename = "TodoSQLite1.db3";
+
+        public const SQLite.SQLiteOpenFlags Flags =
+            SQLite.SQLiteOpenFlags.ReadWrite |
+            SQLite.SQLiteOpenFlags.Create |
+            SQLite.SQLiteOpenFlags.SharedCache;
+
+        public static string DatabasePath
+        {
+            get
+            {
+                var basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                return Path.Combine(basePath, DatabaseFilename);
+            }
+        }
+    }
+}
